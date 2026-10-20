@@ -1,0 +1,9 @@
+node_modules/
+venv/
+.venv/
+.env
+__pycache__/
+dist/
+ml-service/data/
+uploads/
+*.log

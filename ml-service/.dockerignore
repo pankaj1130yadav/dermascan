@@ -1,0 +1,8 @@
+venv/
+data/
+__pycache__/
+*.log
+train*.py
+build_samples.py
+test_smoke.py
+MODEL_CARD.md

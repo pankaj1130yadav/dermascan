@@ -1,0 +1,61 @@
+name: DermaScan CI
+
+# Runs the backend API test suite (in-memory MongoDB + stubbed ML service),
+# builds the frontend, and smoke-tests the ML service. Written for GitHub
+# Actions; it was NOT executed in CI during the v2 build (see TEST_REPORT.md).
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  backend-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install backend deps
+        working-directory: backend
+        run: npm install
+      - name: Run backend API tests
+        working-directory: backend
+        run: npm test
+
+  frontend-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install frontend deps
+        working-directory: frontend
+        run: npm install
+      - name: Build frontend
+        working-directory: frontend
+        run: npm run build
+
+  ml-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install ML deps (CPU torch)
+        working-directory: ml-service
+        run: |
+          pip install --index-url https://download.pytorch.org/whl/cpu torch torchvision
+          pip install -r requirements.txt
+      - name: Start ML service and run smoke tests
+        working-directory: ml-service
+        run: |
+          if [ -f models/mobilenetv2_skin.pth ]; then
+            uvicorn app:app --port 8000 &
+            for i in $(seq 1 30); do curl -sf http://localhost:8000/health && break || sleep 2; done
+            python test_smoke.py http://localhost:8000
+          else
+            echo "Trained weights not present in repo — skipping live smoke test."
+          fi

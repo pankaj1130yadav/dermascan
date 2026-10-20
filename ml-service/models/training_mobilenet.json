@@ -1,0 +1,162 @@
+{
+  "model": "mobilenetv2",
+  "dataset_size": 10015,
+  "train_size": 8012,
+  "val_size": 2003,
+  "class_counts": {
+    "akiec": 327,
+    "bcc": 514,
+    "bkl": 1099,
+    "df": 115,
+    "mel": 1113,
+    "nv": 6705,
+    "vasc": 142
+  },
+  "epochs": [
+    {
+      "epoch": 1,
+      "train_loss": 0.9676,
+      "val_acc": 0.7973
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.8219,
+      "val_acc": 0.7384
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.7529,
+      "val_acc": 0.7629
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.6586,
+      "val_acc": 0.7798
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.7064,
+      "val_acc": 0.7803
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.6105,
+      "val_acc": 0.7833
+    }
+  ],
+  "best_val_accuracy": 0.7973,
+  "per_class": {
+    "akiec": {
+      "precision": 0.4632,
+      "recall": 0.6769,
+      "f1": 0.55,
+      "support": 65
+    },
+    "bcc": {
+      "precision": 0.6325,
+      "recall": 0.7184,
+      "f1": 0.6727,
+      "support": 103
+    },
+    "bkl": {
+      "precision": 0.6283,
+      "recall": 0.6455,
+      "f1": 0.6368,
+      "support": 220
+    },
+    "df": {
+      "precision": 0.4783,
+      "recall": 0.4783,
+      "f1": 0.4783,
+      "support": 23
+    },
+    "mel": {
+      "precision": 0.6847,
+      "recall": 0.3408,
+      "f1": 0.4551,
+      "support": 223
+    },
+    "nv": {
+      "precision": 0.8962,
+      "recall": 0.9142,
+      "f1": 0.9051,
+      "support": 1341
+    },
+    "vasc": {
+      "precision": 0.381,
+      "recall": 0.8571,
+      "f1": 0.5275,
+      "support": 28
+    }
+  },
+  "confusion_matrix": [
+    [
+      44,
+      6,
+      6,
+      2,
+      1,
+      6,
+      0
+    ],
+    [
+      5,
+      74,
+      9,
+      2,
+      0,
+      9,
+      4
+    ],
+    [
+      20,
+      13,
+      142,
+      1,
+      6,
+      32,
+      6
+    ],
+    [
+      4,
+      3,
+      0,
+      11,
+      0,
+      5,
+      0
+    ],
+    [
+      17,
+      6,
+      28,
+      1,
+      76,
+      89,
+      6
+    ],
+    [
+      5,
+      12,
+      41,
+      6,
+      28,
+      1226,
+      23
+    ],
+    [
+      0,
+      3,
+      0,
+      0,
+      0,
+      1,
+      24
+    ]
+  ],
+  "train_minutes": 24.9,
+  "device": "cpu",
+  "notes": "Init: initialised from v1 weights models/mobilenetv2_skin.pth (themselves ImageNet-pretrained, fine-tuned on the v1 2,000-image subset). Full HAM10000 dataset, stratified 80/20 split, seed 42. Class-weighted CrossEntropyLoss (balanced weights from train counts; nv ~67% otherwise dominates - v1 unweighted had df recall 0.00, mel recall 0.48). Phase A: backbone frozen, head only, Adam lr=1e-3, 2 epochs. Phase B: backbone tail features[13:] unfrozen, Adam lr=1e-4 head / 1e-5 tail, 4 epochs. Augmentation: horizontal+vertical flips, rotation 15 deg. Batch 32. CPU-feasibility: frozen prefix outputs were cached per augmentation variant (2 variants cycled in Phase B; backbone in eval mode, BN statistics frozen) and the head/tail trained on cached tensors - see train_v2.py docstring. Per-epoch val_acc is measured on cached clean val features; per-class metrics and the confusion matrix come from re-evaluating the best checkpoint end-to-end on the real validation images (accuracy 0.7973).",
+  "v1_val_accuracy": 0.8125,
+  "shipped": "v1"
+}

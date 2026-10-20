@@ -1,0 +1,442 @@
+[
+  {
+    "id": 1,
+    "file": "samples/ISIC_0024310.jpg",
+    "true_class": "mel",
+    "true_name": "Melanoma",
+    "mobilenet": {
+      "predictions": [
+        {
+          "class_id": "mel",
+          "name": "Melanoma",
+          "probability": 0.8272,
+          "risk_tier": "high"
+        },
+        {
+          "class_id": "bkl",
+          "name": "Benign Keratosis",
+          "probability": 0.0934,
+          "risk_tier": "low"
+        },
+        {
+          "class_id": "akiec",
+          "name": "Actinic Keratosis",
+          "probability": 0.0431,
+          "risk_tier": "moderate"
+        }
+      ],
+      "top_class": "mel",
+      "overall_risk_tier": "high"
+    },
+    "efficientnet": {
+      "predictions": [
+        {
+          "class_id": "mel",
+          "name": "Melanoma",
+          "probability": 0.7397,
+          "risk_tier": "high"
+        },
+        {
+          "class_id": "bkl",
+          "name": "Benign Keratosis",
+          "probability": 0.114,
+          "risk_tier": "low"
+        },
+        {
+          "class_id": "akiec",
+          "name": "Actinic Keratosis",
+          "probability": 0.098,
+          "risk_tier": "moderate"
+        }
+      ],
+      "top_class": "mel",
+      "overall_risk_tier": "high"
+    },
+    "attribution": "HAM10000 (ISIC Archive), CC BY-NC 4.0"
+  },
+  {
+    "id": 2,
+    "file": "samples/ISIC_0024313.jpg",
+    "true_class": "mel",
+    "true_name": "Melanoma",
+    "mobilenet": {
+      "predictions": [
+        {
+          "class_id": "nv",
+          "name": "Melanocytic Nevus",
+          "probability": 0.512,
+          "risk_tier": "low"
+        },
+        {
+          "class_id": "mel",
+          "name": "Melanoma",
+          "probability": 0.4771,
+          "risk_tier": "high"
+        },
+        {
+          "class_id": "df",
+          "name": "Dermatofibroma",
+          "probability": 0.0035,
+          "risk_tier": "low"
+        }
+      ],
+      "top_class": "nv",
+      "overall_risk_tier": "low"
+    },
+    "efficientnet": {
+      "predictions": [
+        {
+          "class_id": "nv",
+          "name": "Melanocytic Nevus",
+          "probability": 0.4074,
+          "risk_tier": "low"
+        },
+        {
+          "class_id": "mel",
+          "name": "Melanoma",
+          "probability": 0.3385,
+          "risk_tier": "high"
+        },
+        {
+          "class_id": "bkl",
+          "name": "Benign Keratosis",
+          "probability": 0.216,
+          "risk_tier": "low"
+        }
+      ],
+      "top_class": "nv",
+      "overall_risk_tier": "low"
+    },
+    "attribution": "HAM10000 (ISIC Archive), CC BY-NC 4.0"
+  },
+  {
+    "id": 3,
+    "file": "samples/ISIC_0024306.jpg",
+    "true_class": "nv",
+    "true_name": "Melanocytic Nevus",
+    "mobilenet": {
+      "predictions": [
+        {
+          "class_id": "nv",
+          "name": "Melanocytic Nevus",
+          "probability": 0.9826,
+          "risk_tier": "low"
+        },
+        {
+          "class_id": "df",
+          "name": "Dermatofibroma",
+          "probability": 0.0044,
+          "risk_tier": "low"
+        },
+        {
+          "class_id": "vasc",
+          "name": "Vascular Lesion",
+          "probability": 0.0041,
+          "risk_tier": "low"
+        }
+      ],
+      "top_class": "nv",
+      "overall_risk_tier": "low"
+    },
+    "efficientnet": {
+      "predictions": [
+        {
+          "class_id": "nv",
+          "name": "Melanocytic Nevus",
+          "probability": 0.4368,
+          "risk_tier": "low"
+        },
+        {
+          "class_id": "akiec",
+          "name": "Actinic Keratosis",
+          "probability": 0.1658,
+          "risk_tier": "moderate"
+        },
+        {
+          "class_id": "df",
+          "name": "Dermatofibroma",
+          "probability": 0.1519,
+          "risk_tier": "low"
+        }
+      ],
+      "top_class": "nv",
+      "overall_risk_tier": "low"
+    },
+    "attribution": "HAM10000 (ISIC Archive), CC BY-NC 4.0"
+  },
+  {
+    "id": 4,
+    "file": "samples/ISIC_0024307.jpg",
+    "true_class": "nv",
+    "true_name": "Melanocytic Nevus",
+    "mobilenet": {
+      "predictions": [
+        {
+          "class_id": "nv",
+          "name": "Melanocytic Nevus",
+          "probability": 0.977,
+          "risk_tier": "low"
+        },
+        {
+          "class_id": "bkl",
+          "name": "Benign Keratosis",
+          "probability": 0.0099,
+          "risk_tier": "low"
+        },
+        {
+          "class_id": "df",
+          "name": "Dermatofibroma",
+          "probability": 0.0045,
+          "risk_tier": "low"
+        }
+      ],
+      "top_class": "nv",
+      "overall_risk_tier": "low"
+    },
+    "efficientnet": {
+      "predictions": [
+        {
+          "class_id": "nv",
+          "name": "Melanocytic Nevus",
+          "probability": 0.9414,
+          "risk_tier": "low"
+        },
+        {
+          "class_id": "df",
+          "name": "Dermatofibroma",
+          "probability": 0.0161,
+          "risk_tier": "low"
+        },
+        {
+          "class_id": "bkl",
+          "name": "Benign Keratosis",
+          "probability": 0.0145,
+          "risk_tier": "low"
+        }
+      ],
+      "top_class": "nv",
+      "overall_risk_tier": "low"
+    },
+    "attribution": "HAM10000 (ISIC Archive), CC BY-NC 4.0"
+  },
+  {
+    "id": 5,
+    "file": "samples/ISIC_0024331.jpg",
+    "true_class": "bcc",
+    "true_name": "Basal Cell Carcinoma",
+    "mobilenet": {
+      "predictions": [
+        {
+          "class_id": "bcc",
+          "name": "Basal Cell Carcinoma",
+          "probability": 0.5452,
+          "risk_tier": "high"
+        },
+        {
+          "class_id": "akiec",
+          "name": "Actinic Keratosis",
+          "probability": 0.2829,
+          "risk_tier": "moderate"
+        },
+        {
+          "class_id": "bkl",
+          "name": "Benign Keratosis",
+          "probability": 0.0726,
+          "risk_tier": "low"
+        }
+      ],
+      "top_class": "bcc",
+      "overall_risk_tier": "high"
+    },
+    "efficientnet": {
+      "predictions": [
+        {
+          "class_id": "akiec",
+          "name": "Actinic Keratosis",
+          "probability": 0.3432,
+          "risk_tier": "moderate"
+        },
+        {
+          "class_id": "bcc",
+          "name": "Basal Cell Carcinoma",
+          "probability": 0.2613,
+          "risk_tier": "high"
+        },
+        {
+          "class_id": "df",
+          "name": "Dermatofibroma",
+          "probability": 0.1457,
+          "risk_tier": "low"
+        }
+      ],
+      "top_class": "akiec",
+      "overall_risk_tier": "moderate"
+    },
+    "attribution": "HAM10000 (ISIC Archive), CC BY-NC 4.0"
+  },
+  {
+    "id": 6,
+    "file": "samples/ISIC_0024312.jpg",
+    "true_class": "bkl",
+    "true_name": "Benign Keratosis",
+    "mobilenet": {
+      "predictions": [
+        {
+          "class_id": "akiec",
+          "name": "Actinic Keratosis",
+          "probability": 0.4806,
+          "risk_tier": "moderate"
+        },
+        {
+          "class_id": "bkl",
+          "name": "Benign Keratosis",
+          "probability": 0.2193,
+          "risk_tier": "low"
+        },
+        {
+          "class_id": "bcc",
+          "name": "Basal Cell Carcinoma",
+          "probability": 0.1541,
+          "risk_tier": "high"
+        }
+      ],
+      "top_class": "akiec",
+      "overall_risk_tier": "moderate"
+    },
+    "efficientnet": {
+      "predictions": [
+        {
+          "class_id": "bcc",
+          "name": "Basal Cell Carcinoma",
+          "probability": 0.3488,
+          "risk_tier": "high"
+        },
+        {
+          "class_id": "df",
+          "name": "Dermatofibroma",
+          "probability": 0.164,
+          "risk_tier": "low"
+        },
+        {
+          "class_id": "akiec",
+          "name": "Actinic Keratosis",
+          "probability": 0.1416,
+          "risk_tier": "moderate"
+        }
+      ],
+      "top_class": "bcc",
+      "overall_risk_tier": "high"
+    },
+    "attribution": "HAM10000 (ISIC Archive), CC BY-NC 4.0"
+  },
+  {
+    "id": 7,
+    "file": "samples/ISIC_0024329.jpg",
+    "true_class": "akiec",
+    "true_name": "Actinic Keratosis",
+    "mobilenet": {
+      "predictions": [
+        {
+          "class_id": "bcc",
+          "name": "Basal Cell Carcinoma",
+          "probability": 0.602,
+          "risk_tier": "high"
+        },
+        {
+          "class_id": "akiec",
+          "name": "Actinic Keratosis",
+          "probability": 0.2903,
+          "risk_tier": "moderate"
+        },
+        {
+          "class_id": "bkl",
+          "name": "Benign Keratosis",
+          "probability": 0.034,
+          "risk_tier": "low"
+        }
+      ],
+      "top_class": "bcc",
+      "overall_risk_tier": "high"
+    },
+    "efficientnet": {
+      "predictions": [
+        {
+          "class_id": "akiec",
+          "name": "Actinic Keratosis",
+          "probability": 0.7047,
+          "risk_tier": "moderate"
+        },
+        {
+          "class_id": "bcc",
+          "name": "Basal Cell Carcinoma",
+          "probability": 0.174,
+          "risk_tier": "high"
+        },
+        {
+          "class_id": "bkl",
+          "name": "Benign Keratosis",
+          "probability": 0.0841,
+          "risk_tier": "low"
+        }
+      ],
+      "top_class": "akiec",
+      "overall_risk_tier": "moderate"
+    },
+    "attribution": "HAM10000 (ISIC Archive), CC BY-NC 4.0"
+  },
+  {
+    "id": 8,
+    "file": "samples/ISIC_0024318.jpg",
+    "true_class": "df",
+    "true_name": "Dermatofibroma",
+    "mobilenet": {
+      "predictions": [
+        {
+          "class_id": "bcc",
+          "name": "Basal Cell Carcinoma",
+          "probability": 0.3525,
+          "risk_tier": "high"
+        },
+        {
+          "class_id": "nv",
+          "name": "Melanocytic Nevus",
+          "probability": 0.2129,
+          "risk_tier": "low"
+        },
+        {
+          "class_id": "akiec",
+          "name": "Actinic Keratosis",
+          "probability": 0.1365,
+          "risk_tier": "moderate"
+        }
+      ],
+      "top_class": "bcc",
+      "overall_risk_tier": "high"
+    },
+    "efficientnet": {
+      "predictions": [
+        {
+          "class_id": "df",
+          "name": "Dermatofibroma",
+          "probability": 0.8815,
+          "risk_tier": "low"
+        },
+        {
+          "class_id": "bcc",
+          "name": "Basal Cell Carcinoma",
+          "probability": 0.0373,
+          "risk_tier": "high"
+        },
+        {
+          "class_id": "akiec",
+          "name": "Actinic Keratosis",
+          "probability": 0.0305,
+          "risk_tier": "moderate"
+        }
+      ],
+      "top_class": "df",
+      "overall_risk_tier": "low"
+    },
+    "attribution": "HAM10000 (ISIC Archive), CC BY-NC 4.0"
+  }
+]

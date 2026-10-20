@@ -1,0 +1,136 @@
+{
+  "doi": "doi:10.7910/DVN/DBW86T",
+  "subset_size": 2000,
+  "train_size": 1600,
+  "val_size": 400,
+  "class_counts": {
+    "akiec": 65,
+    "bcc": 103,
+    "bkl": 220,
+    "df": 23,
+    "mel": 222,
+    "nv": 1339,
+    "vasc": 28
+  },
+  "epochs": 4,
+  "batch_size": 32,
+  "optimizer": "Adam(lr=0.0001)",
+  "device": "cpu",
+  "threads": 2,
+  "seed": 42,
+  "best_val_accuracy": 0.8125,
+  "train_minutes": 9.8,
+  "per_class": {
+    "akiec": {
+      "precision": 0.5,
+      "recall": 0.4615,
+      "f1": 0.48,
+      "support": 13
+    },
+    "bcc": {
+      "precision": 0.6818,
+      "recall": 0.7143,
+      "f1": 0.6977,
+      "support": 21
+    },
+    "bkl": {
+      "precision": 0.6757,
+      "recall": 0.5682,
+      "f1": 0.6173,
+      "support": 44
+    },
+    "df": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 5
+    },
+    "mel": {
+      "precision": 0.5385,
+      "recall": 0.4773,
+      "f1": 0.506,
+      "support": 44
+    },
+    "nv": {
+      "precision": 0.8711,
+      "recall": 0.9328,
+      "f1": 0.9009,
+      "support": 268
+    },
+    "vasc": {
+      "precision": 1.0,
+      "recall": 0.6,
+      "f1": 0.75,
+      "support": 5
+    }
+  },
+  "confusion_matrix": [
+    [
+      6,
+      0,
+      1,
+      0,
+      4,
+      2,
+      0
+    ],
+    [
+      1,
+      15,
+      0,
+      0,
+      2,
+      3,
+      0
+    ],
+    [
+      3,
+      1,
+      25,
+      0,
+      5,
+      10,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      0,
+      0,
+      4,
+      0
+    ],
+    [
+      2,
+      0,
+      3,
+      0,
+      21,
+      18,
+      0
+    ],
+    [
+      0,
+      4,
+      7,
+      0,
+      7,
+      250,
+      0
+    ],
+    [
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      3
+    ]
+  ],
+  "image_zips_used": [
+    "HAM10000_images_part_1.zip",
+    "HAM10000_images_part_2.zip"
+  ]
+}

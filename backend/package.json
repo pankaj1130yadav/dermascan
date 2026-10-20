@@ -1,0 +1,40 @@
+{
+  "dependencies": {
+    "axios": "^1.7.7",
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "express-rate-limit": "^8.7.1",
+    "express-validator": "^7.3.2",
+    "form-data": "^4.0.4",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.7.1",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^10.1.7",
+    "pdfkit": "^0.20.2",
+    "qrcode": "^1.5.4",
+    "socket.io": "^4.8.4",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "description": "DermaScan backend — Node/Express API for skin-cancer-detection analysis history",
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "main": "server.js",
+  "name": "dermascan-backend",
+  "scripts": {
+    "dev": "node --watch server.js",
+    "start": "node server.js",
+    "seed:admin": "node seed-admin.js",
+    "seed:accounts": "SEED_ACCOUNTS=1 node seed-admin.js",
+    "test": "node --test tests/api.test.js"
+  },
+  "version": "1.0.0",
+  "devDependencies": {
+    "mongodb-memory-server": "^11.3.0",
+    "supertest": "^7.3.1"
+  }
+}

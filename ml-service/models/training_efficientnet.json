@@ -1,0 +1,156 @@
+{
+  "model": "efficientnet_b0",
+  "dataset_size": 10015,
+  "train_size": 8012,
+  "val_size": 2003,
+  "class_counts": {
+    "akiec": 327,
+    "bcc": 514,
+    "bkl": 1099,
+    "df": 115,
+    "mel": 1113,
+    "nv": 6705,
+    "vasc": 142
+  },
+  "epochs": [
+    {
+      "epoch": 1,
+      "train_loss": 1.465,
+      "val_acc": 0.5976
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.1324,
+      "val_acc": 0.5686
+    },
+    {
+      "epoch": 3,
+      "train_loss": 1.3622,
+      "val_acc": 0.4683
+    },
+    {
+      "epoch": 4,
+      "train_loss": 1.0956,
+      "val_acc": 0.5602
+    },
+    {
+      "epoch": 5,
+      "train_loss": 1.0185,
+      "val_acc": 0.6221
+    }
+  ],
+  "best_val_accuracy": 0.6221,
+  "per_class": {
+    "akiec": {
+      "precision": 0.2823,
+      "recall": 0.5385,
+      "f1": 0.3704,
+      "support": 65
+    },
+    "bcc": {
+      "precision": 0.3514,
+      "recall": 0.6311,
+      "f1": 0.4514,
+      "support": 103
+    },
+    "bkl": {
+      "precision": 0.4021,
+      "recall": 0.5227,
+      "f1": 0.4545,
+      "support": 220
+    },
+    "df": {
+      "precision": 0.2222,
+      "recall": 0.6087,
+      "f1": 0.3256,
+      "support": 23
+    },
+    "mel": {
+      "precision": 0.3054,
+      "recall": 0.4081,
+      "f1": 0.3493,
+      "support": 223
+    },
+    "nv": {
+      "precision": 0.9536,
+      "recall": 0.6741,
+      "f1": 0.7899,
+      "support": 1341
+    },
+    "vasc": {
+      "precision": 0.2222,
+      "recall": 0.7857,
+      "f1": 0.3465,
+      "support": 28
+    }
+  },
+  "confusion_matrix": [
+    [
+      35,
+      14,
+      8,
+      4,
+      4,
+      0,
+      0
+    ],
+    [
+      11,
+      65,
+      10,
+      6,
+      3,
+      1,
+      7
+    ],
+    [
+      31,
+      22,
+      115,
+      7,
+      29,
+      14,
+      2
+    ],
+    [
+      2,
+      3,
+      3,
+      14,
+      0,
+      1,
+      0
+    ],
+    [
+      25,
+      23,
+      48,
+      4,
+      91,
+      28,
+      4
+    ],
+    [
+      19,
+      53,
+      102,
+      28,
+      171,
+      904,
+      64
+    ],
+    [
+      1,
+      5,
+      0,
+      0,
+      0,
+      0,
+      22
+    ]
+  ],
+  "train_minutes": 27.7,
+  "device": "cpu",
+  "notes": "Init: ImageNet IMAGENET1K_V1 init. Full HAM10000 dataset, stratified 80/20 split, seed 42. Class-weighted CrossEntropyLoss (balanced weights from train counts; nv ~67% otherwise dominates - v1 unweighted had df recall 0.00, mel recall 0.48). Phase A: backbone frozen, head only, Adam lr=1e-3, 2 epochs. Phase B: backbone tail features[6:] unfrozen, Adam lr=1e-4 head / 1e-5 tail, 3 epochs. Augmentation: horizontal+vertical flips, rotation 15 deg. Batch 32. CPU-feasibility: frozen prefix outputs were cached per augmentation variant (2 variants cycled in Phase B; backbone in eval mode, BN statistics frozen) and the head/tail trained on cached tensors - see train_v2.py docstring. Per-epoch val_acc is measured on cached clean val features; per-class metrics and the confusion matrix come from re-evaluating the best checkpoint end-to-end on the real validation images (accuracy 0.6221).",
+  "v1_val_accuracy": 0.8125
+}

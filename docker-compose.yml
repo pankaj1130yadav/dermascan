@@ -1,0 +1,67 @@
+# DermaScan v2 — one-command setup.
+#
+#   docker compose up --build
+#
+# Then open http://localhost:5173
+#
+# MongoDB: by default the backend expects an EXTERNAL MongoDB URI
+# (e.g. Pankaj's existing MongoDB Atlas cluster). Set it before running:
+#   MONGO_URI="mongodb+srv://<user>:<pass>@<cluster>/dermascan" docker compose up --build
+# Or use the bundled local MongoDB instead:
+#   docker compose --profile localdb up --build
+# (with the profile on and MONGO_URI unset, the backend uses the local mongo service).
+#
+# NOTE (honest): this compose file was written and syntax-checked by inspection;
+# it was NOT executed in the build sandbox (no Docker available there).
+
+services:
+  ml-service:
+    build: ./ml-service
+    ports:
+      - "8000:8000"
+
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    environment:
+      PORT: "5000"
+      # Falls back to the compose-local mongo service URI; override with your Atlas URI.
+      MONGO_URI: "${MONGO_URI:-mongodb://mongo:27017/dermascan}"
+      JWT_SECRET: "${JWT_SECRET:-demo-secret-change-me-in-production}"
+      ML_SERVICE_URL: "http://ml-service:8000"
+      FRONTEND_URL: "http://localhost:5173"
+      # Optional email (leave unset -> the app honestly reports "email not configured"):
+      SMTP_HOST: "${SMTP_HOST:-}"
+      SMTP_PORT: "${SMTP_PORT:-587}"
+      SMTP_USER: "${SMTP_USER:-}"
+      SMTP_PASS: "${SMTP_PASS:-}"
+      SMTP_FROM: "${SMTP_FROM:-}"
+    volumes:
+      - dermascan-uploads:/app/uploads
+    depends_on:
+      - ml-service
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_URL: "http://localhost:5000"
+        VITE_ML_URL: "http://localhost:8000"
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+      - ml-service
+
+  mongo:
+    image: mongo:7
+    profiles: ["localdb"]
+    ports:
+      - "27017:27017"
+    volumes:
+      - dermascan-mongo:/data/db
+
+volumes:
+  dermascan-uploads:
+  dermascan-mongo:
